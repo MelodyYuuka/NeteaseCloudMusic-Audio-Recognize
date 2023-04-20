@@ -2,7 +2,11 @@ const NeteaseUtils = require('./sandbox.bundle')
 const fs = require('fs');
 const axios = require('axios');
 (async () => {
-    let songdata = fs.readFileSync("test.mp3");
+    let musicname = process.argv[2]
+    if (musicname == undefined) {
+        musicname = "test.mp3"
+    }
+    let songdata = fs.readFileSync(musicname);
     let array = [];
     for (let i = 0; i < songdata.length; i++) {
         array[i] = songdata[i];

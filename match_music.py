@@ -95,5 +95,8 @@ def match_music(
 
 
 if __name__ == "__main__":
-    with open("test.mp3", "rb") as f:
+    import sys
+
+    music_name = "test.mp3" if len(sys.argv) <= 1 else sys.argv[1]
+    with open(music_name, "rb") as f:
         print(match_music(f.read(), 0, 5, 0))
